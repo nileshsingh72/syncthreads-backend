@@ -1,7 +1,7 @@
 const { userModel } = require("../Model/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-export const userRegister = async (req, res) => {
+const userRegister = async (req, res) => {
   const { email, password } = req.body;
   const isPresent = await userModel.findOne({ email: email });
   if (isPresent) {
@@ -24,7 +24,7 @@ export const userRegister = async (req, res) => {
   }
 };
 
-export const userSignin = async (req, res) => {
+const userSignin = async (req, res) => {
   const { email, password } = req.body;
 
   const isExist = await userModel.findOne({ email });
@@ -62,3 +62,5 @@ export const userSignin = async (req, res) => {
     }
   }
 };
+
+module.exports = { userRegister, userSignin };
