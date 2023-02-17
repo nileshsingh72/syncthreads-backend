@@ -1,5 +1,4 @@
-import { userModel } from "../Model/user.model";
-
+const { userModel } = require("../Model/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 export const userRegister = async (req, res) => {
